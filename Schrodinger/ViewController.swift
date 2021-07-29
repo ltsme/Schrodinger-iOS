@@ -48,42 +48,42 @@ class ViewController: UIViewController {
 
     
     @objc func goKjy() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "JyKim", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)
     }
 
     @objc func goSjp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "JpSong", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailItemViewController") as! DetailItemViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)
     }
     
     @objc func goYhj() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "HjYang", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "AddItemViewController") as! AddItemViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)
     }
     
     @objc func goLdy() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "DyLee", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)
     }
     
     @objc func goLhj() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "HjLim", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)
     }
     
     @objc func goCjy() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "JyChoi", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "ListMainViewController") as! ListMainViewController
         destinationVC.modalPresentationStyle = .fullScreen
         present(destinationVC, animated: true, completion: nil)

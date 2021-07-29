@@ -21,6 +21,12 @@
 		508839C026B24BEC007734D4 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508839BF26B24BEC007734D4 /* AddItemViewController.swift */; };
 		508839C426B24C1B007734D4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508839C326B24C1B007734D4 /* SearchViewController.swift */; };
 		508839CE26B250A3007734D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508839CD26B250A3007734D4 /* HomeViewController.swift */; };
+		508839D126B262C7007734D4 /* JyKim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839D026B262C7007734D4 /* JyKim.storyboard */; };
+		508839D426B262DC007734D4 /* JpSong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839D326B262DC007734D4 /* JpSong.storyboard */; };
+		508839D726B263F5007734D4 /* HjYang.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839D626B263F5007734D4 /* HjYang.storyboard */; };
+		508839DA26B26430007734D4 /* JyChoi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839D926B26430007734D4 /* JyChoi.storyboard */; };
+		508839DD26B2643D007734D4 /* HjLim.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839DC26B2643D007734D4 /* HjLim.storyboard */; };
+		508839E026B26449007734D4 /* DyLee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508839DF26B26449007734D4 /* DyLee.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,12 @@
 		508839BF26B24BEC007734D4 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		508839C326B24C1B007734D4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		508839CD26B250A3007734D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		508839D026B262C7007734D4 /* JyKim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JyKim.storyboard; sourceTree = "<group>"; };
+		508839D326B262DC007734D4 /* JpSong.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JpSong.storyboard; sourceTree = "<group>"; };
+		508839D626B263F5007734D4 /* HjYang.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HjYang.storyboard; sourceTree = "<group>"; };
+		508839D926B26430007734D4 /* JyChoi.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JyChoi.storyboard; sourceTree = "<group>"; };
+		508839DC26B2643D007734D4 /* HjLim.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HjLim.storyboard; sourceTree = "<group>"; };
+		508839DF26B26449007734D4 /* DyLee.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DyLee.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,12 @@
 		5088398526B24282007734D4 = {
 			isa = PBXGroup;
 			children = (
+				508839DF26B26449007734D4 /* DyLee.storyboard */,
+				508839DC26B2643D007734D4 /* HjLim.storyboard */,
+				508839D926B26430007734D4 /* JyChoi.storyboard */,
+				508839D626B263F5007734D4 /* HjYang.storyboard */,
+				508839D326B262DC007734D4 /* JpSong.storyboard */,
+				508839D026B262C7007734D4 /* JyKim.storyboard */,
 				5088399026B24282007734D4 /* Schrodinger */,
 				5088398F26B24282007734D4 /* Products */,
 			);
@@ -200,10 +218,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508839D726B263F5007734D4 /* HjYang.storyboard in Resources */,
+				508839DD26B2643D007734D4 /* HjLim.storyboard in Resources */,
 				5088399E26B24293007734D4 /* LaunchScreen.storyboard in Resources */,
 				508839AC26B245FB007734D4 /* Localizable.strings in Resources */,
 				5088399B26B24293007734D4 /* Assets.xcassets in Resources */,
+				508839D126B262C7007734D4 /* JyKim.storyboard in Resources */,
+				508839E026B26449007734D4 /* DyLee.storyboard in Resources */,
 				5088399926B24282007734D4 /* Main.storyboard in Resources */,
+				508839DA26B26430007734D4 /* JyChoi.storyboard in Resources */,
+				508839D426B262DC007734D4 /* JpSong.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
