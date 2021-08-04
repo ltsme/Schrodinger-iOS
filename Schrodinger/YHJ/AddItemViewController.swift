@@ -9,21 +9,54 @@ import UIKit
 
 class AddItemViewController: UIViewController {
 
+    var itemName : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Write 버튼을 눌렀을 때
+    @IBAction func btnWrite(_ sender: UIButton) {
+        
+        // Alert 선언
+        let alert = UIAlertController(title: "Item name", message: "please add item name, It is shown in your item list", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default, handler:
+                                {ACTION in
+                                    self.itemName = alert.textFields![0].text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    
+                                    self.performSegue(withIdentifier: "sgWrite", sender: self)
+                                })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        alert.addTextField{ (textField) -> Void in
+            textField.placeholder = "Placeholder"
+        }
+        present(alert, animated: true, completion: nil)
+    }// btnWrite
+    
+    // Segue 선언
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
-}
+        // Write segue
+        if segue.identifier == "sgWrite"{
+
+            let addItemDetailViewController = segue.destination as! AddItemDetailViewController
+            
+            addItemDetailViewController.itemName = itemName
+            present(addItemDetailViewController, animated: true, completion: nil)
+        }
+        
+        // Barcode segue
+        if segue.identifier == "sgBarcode"{
+
+            let readerViewController = segue.destination as! ReaderViewController
+        
+            present(readerViewController, animated: true, completion: nil)
+        }
+    }
+    
+} // AddItemViewController
