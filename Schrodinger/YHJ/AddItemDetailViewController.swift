@@ -38,13 +38,13 @@ class AddItemDetailViewController: UIViewController {
         
     }
     @IBAction func btnCategory1(_ sender: UIButton) {
-        btnSelected(btnNum: 1)
+        btnSelected(btnNum: 0)
     }
     @IBAction func btnCategory2(_ sender: UIButton) {
-        btnSelected(btnNum: 2)
+        btnSelected(btnNum: 1)
     }
     @IBAction func btnCategory3(_ sender: UIButton) {
-        btnSelected(btnNum: 3)
+        btnSelected(btnNum: 2)
     }
     
     func btnSelected(btnNum : Int) {
@@ -53,15 +53,15 @@ class AddItemDetailViewController: UIViewController {
         switch btnNum {
         case 1:
             btnCategory1.setTitleColor(UIColor.systemRed, for: .normal)
-            itemCategory = "1"
+            itemCategory = "0"
             break
         case 2:
             btnCategory2.setTitleColor(UIColor.systemRed, for: .normal)
-            itemCategory = "2"
+            itemCategory = "1"
             break
         case 3:
             btnCategory3.setTitleColor(UIColor.systemRed, for: .normal)
-            itemCategory = "3"
+            itemCategory = "2"
             break
         default:
             break
@@ -77,23 +77,15 @@ class AddItemDetailViewController: UIViewController {
     @IBAction func changeDatePicker(_ sender: UIDatePicker) {
         let chooseDate = sender.date
         let formatter = DateFormatter()
-        print(chooseDate)
                 
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
                 
         itemExpirationDate = "\(formatter.string(from: chooseDate as Date))"
-        print("선택 시간 : \(formatter.string(from: chooseDate as Date))")
     }
     
     @IBAction func btnAdd(_ sender: UIButton) {
         itemMemo = tfMemo.text
-        
-        print(itemName)
-        print(itemCategory)
-        print(itemMemo)
-        print(itemExpirationDate)
-        print(itemImage)
         
         // QueryModel 처럼 InsertModel을 만들어야 함 : swift.file
         let insertModel = InsertModel()
@@ -116,7 +108,6 @@ class AddItemDetailViewController: UIViewController {
             
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
-            
             
         }
     }
