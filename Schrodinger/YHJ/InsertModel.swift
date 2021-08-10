@@ -11,7 +11,7 @@ import Foundation
 class InsertModel{
     //jsonmodel 이 portocol 을 가지고 있음
    
-    var urlPath = "http://192.168.0.8:8080/schrodinger/schrodingerInsert_ios.jsp"
+    var urlPath = "http://172.30.43.146:8080/schrodinger/schrodingerInsert_ios.jsp"
     
     func insertItems(name: String, category: String, expirationdate: String, memo: String, image: String) -> Bool {
         
@@ -19,8 +19,8 @@ class InsertModel{
         let urlAdd = "?name=\(name)&category=\(category)&expirationdate=\(expirationdate)&memo=\(memo)&image=\(image)&updateDate=now()" // 띄어쓰기하면 안됨!
         urlPath = urlPath + urlAdd
         
-//        // 한글 url encoding
-//        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)! // 한글이 %로 쫙!
+        // 한글 url encoding
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)! // 한글이 %로 쫙!
         
         // 서버에서 데이터 받아오는 동안
         let url: URL = URL(string: urlPath)!
