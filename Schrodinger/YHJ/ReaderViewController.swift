@@ -7,14 +7,15 @@
 
 import UIKit
 import AVFoundation
+import SwiftSoup
 
 class ReaderViewController: UIViewController {
     
-    var strName : String = ""
-
+    // 각종 변수 선언
+    var strItemName : String = ""
     @IBOutlet weak var readerView: ReaderView!
 //    @IBOutlet weak var readButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +33,60 @@ class ReaderViewController: UIViewController {
             self.readerView.stop(isButtonTap: false)
         }
     }
-}
+ 
+    // webCrawling (SwiftSoup)
+    func doCrawling(code : String) {
+        
+        let Barcode = code
+        let idKey : String = "f35b8b370050494daeae" // API KEY
+        var startNum : Int = 1 // 검색 시작 번호
+        var endNum : Int = 1000 // 검색 끝 번호 (우선 1만개 까지 검색할 예정)
+        let increase : Int = 1000
+        
+        while endNum < 5000 {
+        
+            var urlAddress = URL(string: "https://openapi.foodsafetykorea.go.kr/api/\(idKey)/C005/xml/\(startNum)/\(endNum)/BAR_CD=\(Barcode)")
+
+            guard let myUrl = urlAddress else { return }
+            
+            do {
+                let myUrlStr = try String(contentsOf: myUrl, encoding: .utf8)
+                let doc: Document = try SwiftSoup.parse(myUrlStr)
+                
+                // 텍스트 크롤링 클래스.end_model 안 h3 태그 정보를 result에 저장
+                let result : Elements = try doc.select("row").select("PRDLST_NM")
+                
+//                // 이미지 크롤링
+//                let imagesrc: Elements = try doc.select("div#carMainImgArea.img_group").select("div.main_img").select("img[src]")
+//                let stringImage = try imagesrc.attr("src").description
+//                let urlImage = URL(string: stringImage)
+//                let data = try Data(contentsOf: urlImage!)
+//                ivTest.image = UIImage(data: data)
+                
+                // 찾았을 경우 종료
+                if try result.text().isEmpty{
+                    startNum += increase
+                    endNum += increase
+                }else{
+                    endNum = 5000
+                    strItemName = try result.text()
+                }
+                
+            } catch Exception.Error(let type, let message) {
+                print("Message : \(message)")
+            } catch {
+                print("error")
+            }
+        }// while
+        
+        if strItemName.isEmpty{
+            strItemName = "결과 없음"
+        }
+        
+    }// doCrawling
+    
+}//ReaderViewController
+
 
 extension ReaderViewController: ReaderViewDelegate {
     func readerComplete(status: ReaderStatus) {
@@ -50,8 +104,8 @@ extension ReaderViewController: ReaderViewDelegate {
             title = ""
             message = "인식 성공!\n 등록 화면으로 넘어갑니다."
             
-            // 0809 수정 , 받은 바코드 값을 전역변수 strName에 넣어줌
-            strName = code
+            // 0810 크롤링 기능
+            doCrawling(code: code)
         
         case .fail:
             title = "에러"
@@ -73,7 +127,8 @@ extension ReaderViewController: ReaderViewDelegate {
             if let addItemDetailViewController =  self.storyboard?.instantiateViewController(identifier: "idAddItemDetailViewController") as? AddItemDetailViewController
             {
                 guard let pvc = self.presentingViewController else {return}
-                addItemDetailViewController.itemName = self.strName
+                addItemDetailViewController.itemName = self.strItemName
+                
                 self.dismiss(animated: true) {
                     pvc.present(addItemDetailViewController, animated: true, completion: nil)
                 }
