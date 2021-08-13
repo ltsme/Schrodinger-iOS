@@ -10,27 +10,29 @@ import UIKit
 class AddItemDetailViewController: UIViewController {
     
     var itemName : String = ""
-    var itemCategory : String = ""
     var itemExpirationDate : String = ""
+    var itemCategory : String = ""
     var itemMemo : String = ""
     var itemImage : String = ""
     
     @IBOutlet var ivImg: UIImageView!
     @IBOutlet var lblItemName: UILabel!
+    @IBOutlet var lblItemExpireDate: UILabel!
     @IBOutlet var btnCategory1: UIButton!
     @IBOutlet var btnCategory2: UIButton!
     @IBOutlet var btnCategory3: UIButton!
     @IBOutlet var tfMemo: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 이미지 뷰 초기화
         //ivImg.isHidden = true
-        ivImg.backgroundColor = UIColor.systemGray.withAlphaComponent(0.5)
+        ivImg.backgroundColor = UIColor.systemGray.withAlphaComponent(0.3)
         
         // 텍스트 뷰 초기화
-        lblItemName.text = itemName
+        lblItemName.text = "제품이름 : \(itemName)"
+        lblItemExpireDate.text = "유통기한 : \(itemExpirationDate)"
         
         // 카테고리 값 초기화
         btnSelected(btnNum: 0)
@@ -97,9 +99,6 @@ class AddItemDetailViewController: UIViewController {
             resultAlert.addAction(cancel)
             present(resultAlert, animated: true, completion: nil)
             
-            // 유통기한 값이 nil이 아닐 때
-            
-            
         // 유통기한 값이 nil 일 때
         } else{
             let resultAlert = UIAlertController(title: "경고", message: "유통기한을 지정해 주세요! :(", preferredStyle: .alert)
@@ -108,19 +107,8 @@ class AddItemDetailViewController: UIViewController {
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
         }
-
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func insertDB() {
         itemMemo = tfMemo.text
         
@@ -147,10 +135,9 @@ class AddItemDetailViewController: UIViewController {
             present(resultAlert, animated: true, completion: nil)
         }
     }
-
 }
 
-// 화면 밖 터치 키보드 숨기기
+// 화면 밖 터치 시, 키보드 숨기기
 extension UIViewController {
     func hideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
