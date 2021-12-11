@@ -33,7 +33,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnWrite:" destination="qS7-X3-LTw" eventType="touchUpInside" id="3bh-vw-Pia"/>
-                                    <segue destination="LaU-iO-wXg" kind="presentation" identifier="sgWrite" id="n51-yp-PYV"/>
+                                    <segue destination="LaU-iO-wXg" kind="show" identifier="sgWrite" id="n51-yp-PYV"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2QQ-x9-ffX">
@@ -52,7 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnWrite:" destination="qS7-X3-LTw" eventType="touchUpInside" id="H72-3T-VFE"/>
-                                    <segue destination="LaU-iO-wXg" kind="presentation" identifier="sgWrite" id="4dz-p2-7Gj"/>
+                                    <segue destination="LaU-iO-wXg" kind="show" identifier="sgWrite" id="4dz-p2-7Gj"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-oU-OVG">
@@ -134,7 +134,7 @@
             <objects>
                 <viewController storyboardIdentifier="idAddItemDetailViewController" id="LaU-iO-wXg" customClass="AddItemDetailViewController" customModule="Schrodinger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ni6-zZ-IIH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDa-Gh-w05">
@@ -201,14 +201,7 @@
                                     <action selector="btnCategory1:" destination="LaU-iO-wXg" eventType="touchUpInside" id="vQX-nV-4RH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제 품 이 름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcv-6A-1C8">
-                                <rect key="frame" x="40" y="55" width="335" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="유통기한 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l17-hu-YHx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="권장 유통기한 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l17-hu-YHx">
                                 <rect key="frame" x="40" y="438" width="354" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -222,9 +215,17 @@
                                     <!--2021-01-01 11:00:00 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="changeDatePicker:" destination="LaU-iO-wXg" eventType="valueChanged" id="vWP-9G-vmG"/>
+                                    <action selector="changeDatePicker:" destination="LaU-iO-wXg" eventType="valueChanged" id="eWb-2c-faC"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제품이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcv-6A-1C8">
+                                <rect key="frame" x="33" y="247" width="335" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eOi-Np-rae"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,15 +235,53 @@
                         <outlet property="btnCategory1" destination="Yye-E2-rYp" id="6M1-kt-014"/>
                         <outlet property="btnCategory2" destination="TTG-29-tke" id="d3A-ae-F9s"/>
                         <outlet property="btnCategory3" destination="zcE-ds-Shz" id="dU4-fl-M1w"/>
-                        <outlet property="ivImg" destination="uDa-Gh-w05" id="sAm-0q-So6"/>
-                        <outlet property="lblItemExpireDate" destination="l17-hu-YHx" id="Ym0-qB-zgo"/>
-                        <outlet property="lblItemName" destination="tcv-6A-1C8" id="w3O-4E-fVc"/>
+                        <outlet property="ivImg" destination="uDa-Gh-w05" id="HsQ-mU-RZ6"/>
+                        <outlet property="lblItemExpireDate" destination="l17-hu-YHx" id="aQB-AJ-hOK"/>
+                        <outlet property="lblItemName" destination="tcv-6A-1C8" id="aU3-e5-Bxn"/>
                         <outlet property="tfMemo" destination="Yeo-1n-njk" id="bZO-ab-P6a"/>
+                        <segue destination="Npm-jX-gC4" kind="show" identifier="sgMemo" id="NFP-j0-Dbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDC-iZ-Nrm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3460.8695652173915" y="719.86607142857144"/>
+        </scene>
+        <!--Memo View Controller-->
+        <scene sceneID="S0J-Qs-OaV">
+            <objects>
+                <viewController id="Npm-jX-gC4" customClass="MemoViewController" customModule="Schrodinger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4pD-UT-tI2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aka-YU-AJR">
+                                <rect key="frame" x="44" y="133" width="341" height="565"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n2d-cO-o80"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ulX-zH-zdv">
+                        <barButtonItem key="rightBarButtonItem" title="입력" id="ATF-55-4b5">
+                            <connections>
+                                <action selector="M_btn_memoUpdate:" destination="Npm-jX-gC4" id="H49-3o-R5V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="D_tv_Memomain" destination="aka-YU-AJR" id="lfk-pd-XGD"/>
+                        <outlet property="btn_back_memo" destination="ulX-zH-zdv" id="1ul-CF-zyO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dab-Z9-4qS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4360.8695652173919" y="722.54464285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2e9-4U-9Wc">
@@ -264,7 +303,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4dz-p2-7Gj"/>
+        <segue reference="n51-yp-PYV"/>
         <segue reference="hGG-mp-NOf"/>
     </inferredMetricsTieBreakers>
     <resources>

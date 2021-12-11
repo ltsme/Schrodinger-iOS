@@ -22,21 +22,33 @@ class AddItemDetailViewController: UIViewController {
     @IBOutlet var btnCategory2: UIButton!
     @IBOutlet var btnCategory3: UIButton!
     @IBOutlet var tfMemo: UITextView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 이미지 뷰 초기화
-        //ivImg.isHidden = true
-        ivImg.backgroundColor = UIColor.systemGray.withAlphaComponent(0.3)
+                if itemName == "빙그레 바나나맛 우유" {
+                    // 이미지 뷰 초기화
+                    //ivImg.isHidden = true
+                    //ivImg.image = UIImage(named: "banana.jpeg")
+                }else {
+        //ivImg.image = UIImage(named: "banana2.jpeg")
+                }
+        
+        
+        
         
         // 텍스트 뷰 초기화
-        lblItemName.text = "제품이름 : \(itemName)"
-        lblItemExpireDate.text = "유통기한 : \(itemExpirationDate)"
+        lblItemName.text = itemName
+        lblItemExpireDate.text = "권장 유통기한 : \(itemExpirationDate)"
         
         // 카테고리 값 초기화
         btnSelected(btnNum: 0)
+        
+        // 메모 클릭시 이벤트
+        //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewMapTapped))
+        //        tfMemo.addGestureRecognizer(tapGestureRecognizer)
     }
+    
     @IBAction func btnCategory1(_ sender: UIButton) {
         btnSelected(btnNum: 0)
     }
@@ -77,10 +89,10 @@ class AddItemDetailViewController: UIViewController {
     @IBAction func changeDatePicker(_ sender: UIDatePicker) {
         let chooseDate = sender.date
         let formatter = DateFormatter()
-                
+        
         formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "yyyy-MM-dd"
-                
+        
         itemExpirationDate = "\(formatter.string(from: chooseDate as Date))"
     }
     
@@ -99,7 +111,7 @@ class AddItemDetailViewController: UIViewController {
             resultAlert.addAction(cancel)
             present(resultAlert, animated: true, completion: nil)
             
-        // 유통기한 값이 nil 일 때
+            // 유통기한 값이 nil 일 때
         } else{
             let resultAlert = UIAlertController(title: "경고", message: "유통기한을 지정해 주세요! :(", preferredStyle: .alert)
             let onAction = UIAlertAction(title: "확인", style: .destructive, handler: nil)
@@ -108,7 +120,18 @@ class AddItemDetailViewController: UIViewController {
             present(resultAlert, animated: true, completion: nil)
         }
     }
-
+    
+    //MARK: 메모 클릭시 이벤트
+    //    @objc func viewMapTapped(sender: UITapGestureRecognizer) {
+    //
+    //        let memoViewController =  MemoViewController() //인스턴스를 만들어 값을 넘긴다
+    //        memoViewController.preparememo = memo
+    //        memoViewController.delegate = self // 함수 실행하고 뒤로 화면을 넘긴다
+    //
+    //        self.performSegue(withIdentifier: "sgMemo", sender: self)
+    //
+    //    }
+    
     func insertDB() {
         itemMemo = tfMemo.text
         
@@ -124,7 +147,7 @@ class AddItemDetailViewController: UIViewController {
             
             resultAlert.addAction(onAction)
             present(resultAlert, animated: true, completion: nil)
-       
+            
         }else{
             let resultAlert = UIAlertController(title: "에러", message: "에러가 발생했습니다..", preferredStyle: .alert)
             let onAction = UIAlertAction(title: "확인", style: .cancel, handler: { ACTION in
@@ -140,8 +163,7 @@ class AddItemDetailViewController: UIViewController {
 // 화면 밖 터치 시, 키보드 숨기기
 extension UIViewController {
     func hideKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-            action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     @objc func dismissKeyboard() {
